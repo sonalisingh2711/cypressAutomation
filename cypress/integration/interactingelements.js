@@ -7,6 +7,7 @@ describe("page object model",function(){
          home.visitLink();
          home.Shoes('mens-shoes');
          shoe_s.selectShoes('ASICS GEL-Kayano 27')
+         cy.url().should('include','/product')
          //navigate
          cy.go('back')
         })
