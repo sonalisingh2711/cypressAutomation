@@ -4,8 +4,8 @@ class Home {
         cy.visit('https://shoeshoprunning.fitted.dev/')
     }
     Shoes(value) {
-        const find = cy.get('input[type=checkbox]')
-        find.check(value,{ force: true })
+        const find = cy.get(value)
+        find.click()
     }
 }
 export default Home

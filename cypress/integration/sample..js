@@ -1,18 +1,18 @@
-// sample..js created with Cypress
-//
-// Start writing your Cypress tests below!
-// If you're unfamiliar with how Cypress works,
-// check out the link below and learn how to write your first test:
-// https://on.cypress.io/writing-first-test
+
 describe("my first test suite",function(){
+    before("fixtures",function(){
+        cy.fixture('example').then(function(data){
+              this.data=data
+        })
+    })
     it("nothing much",function(){
         cy.visit("https://example.cypress.io")
       //  cy.pause()
         cy.contains('type').click()
         
         cy.get('.action-email')
-        .type('fake@email.com')
-        .should('have.value', 'fake@email.com')
+        .type(this.data.email)
+        .should('have.value', this.data.email)
     })
     it("interacting Dom elements",function(){
         cy.visit("https://example.cypress.io")
