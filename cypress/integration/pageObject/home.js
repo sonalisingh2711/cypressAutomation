@@ -8,7 +8,7 @@ class Home {
         find.click()
     }
     selectShoes(value) {
-        const clickShoe = cy.contains(value)
+        const clickShoe = cy.get(".name.product-title.woocommerce-loop-product__title").contains(value)
         clickShoe.click()
     }
 }

@@ -9,9 +9,9 @@ describe("page object model",function(){
          cy.wait(9000)
          home.selectShoes('Diadora Mythos Fast Racer 2')
           cy.url().should('include','/product')
-shoes_s.colorOfShoes("Yellow Fluo/Pink Fluo")
-         shoes_s.sizeOfShoes('8');
-         shoes_s.widthOfShoes('D');
+//shoes_s.colorOfShoes("Yellow Fluo/Pink Fluo")
+       //  shoes_s.sizeOfShoes('10')
+         //shoes_s.widthOfShoes('D');
         shoes_s.addCart();
         
          //navigate
