@@ -23,3 +23,16 @@
 //
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
+Cypress.Commands.add("selectProduct", (productName, size , color) => { 
+    cy.get('.noo-search').click()
+    cy.get('.form-control').type('Shirt');
+    cy.get('.form-control').type('{enter}')
+    cy.get('.noo-product-inner h3').each(($el , index , $list) => {
+        if($el.text().includes(productName)) {
+            cy.get($el).click();
+        }
+    })
+    cy.get('#pa_color').select(color);
+    cy.get('#pa_size').select(size);
+    cy.get('.single_add_to_cart_button').click();
+ })
