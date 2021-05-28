@@ -1,31 +1,23 @@
 import { Given, When, Then } from 'cypress-cucumber-preprocessor/steps'
-import Productdescription from '../UI_PageObject/ProductDescriptionPage'
-const productdescription = new Productdescription
+import ProductDescription from '../UI_PageObject/ProductDescriptionPage'
 When('I enter the amount for gift card', () => {
-    productdescription.inputAmount()
+    ProductDescription.giftCardAmount()
 });
 
 When('I add product to cart', () => {
-    productdescription.addToCart()
+    ProductDescription.addToCart()
 });
 
 Then('I verify the added product success message', () => {
 
-    productdescription.verifyProductName()
+    ProductDescription.verifySuccessProductMessage()
 });
 
 Then('I verify the images on product description page', () => {
-    productdescription.imageVerification()
+    ProductDescription.imageVerification()
 });
 
-When('I click on add to cart button', () => {
-    productdescription.addToCart()
-});
-
-Then('I verify the added product success message', () => {
-    productdescription.verifyProductName()
-});
 
 When('I click on view cart button', () => {
-    productdescription.viewCart()
+    ProductDescription.viewCart()
 });

@@ -1,34 +1,33 @@
-import fixtures from '../../fixtures/constantValues.json'
+import constantValues from '../../fixtures/constantValues.json'
 import Home from './HomePage'
-const _verificationmessage = '//div[@style="text-align:center;vertical-align: middle"] //i/following-sibling::span'
-const _viewcarbutton = '//a//*[text()="View Cart"]'
-const _inputamount = "input.input-text.amount"
-const _addtocart = "button.single_add_to_cart_button"
-const _image = "div.woocommerce-product-gallery__image img"
-const home = new Home
+const _verificationMessage = 'i+span'
+const _viewCartButton = '//a//*[text()="View Cart"]'
+const _giftCardAmount = "input.input-text.amount"
+const _addToCart = "button.single_add_to_cart_button"
+const _productImage = "div.woocommerce-product-gallery__image img"
 
-class Productdescription {
-    inputAmount() {
-        cy.get(_inputamount).type(fixtures.amount).type('{enter}')
-    }
+class ProductDescription {
+  static giftCardAmount() {
+    cy.get(_giftCardAmount).type(constantValues.amount).type('{enter}')
+  }
 
-    addToCart() {
-        cy.get(_addtocart).click()
-    }
+  static addToCart() {
+    cy.get(_addToCart).click()
+  }
 
-    imageVerification() {
-        cy.get(_image).invoke('attr', "src").should("contains", fixtures.image_text)
-    }
+  static imageVerification() {
+    cy.get(_productImage).invoke('attr', "src").should("contains", constantValues.image_Url)
+  }
 
-    verifyProductName() {
-        home.getproductname().then((name) => {
-        cy.xpath(_verificationmessage).should('contain',name)
-        })
-      }
+  static verifySuccessProductMessage() {
+    Home.returnProductName().then((name) => {
+      cy.get(_verificationMessage).should('contain', name)
+    })
+  }
 
-      viewCart() {
-        cy.xpath(_viewcarbutton).click()
-      }
-    }
+  static viewCart() {
+    cy.xpath(_viewCartButton).click()
+  }
+}
 
-    export default Productdescription
+export default ProductDescription
