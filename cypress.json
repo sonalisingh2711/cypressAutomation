@@ -1,0 +1,6 @@
+  { 
+        "testFiles": "**/*.feature",
+        "parseSpecialCharSequences":false,
+        "baseUrl":"https://reqres.in/"
+      }
+
